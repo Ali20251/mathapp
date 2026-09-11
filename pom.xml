@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ch.bbw.pr.mymath</groupId>
+    <artifactId>mathapp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>mathapp</name>
+
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!--
+        Nur noetig, sobald die Dependencies unten aus GitHub Packages statt aus dem
+        lokalen Repo (~/.m2) geladen werden - siehe Dokumentation.
+    -->
+    <repositories>
+        <repository>
+            <id>github-mymathlib</id>
+            <url>https://maven.pkg.github.com/Ali20251/mymathlib</url>
+        </repository>
+        <repository>
+            <id>github-kollege-stringlib</id>
+            <url>https://maven.pkg.github.com/Ali20251/kollege-stringlib</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>ch.bbw.pr.mathlib</groupId>
+            <artifactId>mymathlib</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.bbw.pr.stringlib</groupId>
+            <artifactId>mystringlib</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>ch.bbw.pr.mymath.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
