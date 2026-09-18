@@ -16,16 +16,16 @@
     </properties>
 
     <!--
-        Nur noetig, sobald die Dependencies unten aus GitHub Packages statt aus dem
-        lokalen Repo (~/.m2) geladen werden - siehe Dokumentation.
+        mymathlib kommt bewusst aus dem lokalen Repo (~/.m2, siehe Aufgabe 7).
+        mystringlib ist das Kollegen-Ersatzmodul (Aufgabe 9) und wird hier bewusst
+        remote von GitHub Packages geladen, um die Einbindung eines fremden Artefakts
+        zu demonstrieren. GitHub Packages beantwortet ein Paket, das in einem Repo
+        nicht existiert, mit 401 statt 404 - deshalb steht hier nur genau das eine
+        Repository, das mystringlib tatsaechlich hostet.
     -->
     <repositories>
         <repository>
-            <id>github-mymathlib</id>
-            <url>https://maven.pkg.github.com/Ali20251/mymathlib</url>
-        </repository>
-        <repository>
-            <id>github-kollege-stringlib</id>
+            <id>github</id>
             <url>https://maven.pkg.github.com/Ali20251/kollege-stringlib</url>
         </repository>
     </repositories>
@@ -48,6 +48,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
                 <configuration>
                     <archive>
                         <manifest>
